@@ -58,7 +58,10 @@ console.log("I'm wating for you @" + PORT);
 
 // index. Let's say something fun
 app.get('/', function(req, res) {
-  res.send('"Only those who will risk going too far can possibly find out how far one can go." - T.S. Eliot');
+  res.send('Privacy policy:' + \n + 'We retrieve the Facebook user ID of the sender.' +
+           'We retrieve the user\'s current session, or create one if it doesn\'t exist. ' +
+           'This is needed for our bot to figure out the conversation history.'); 
+           //'"Only those who will risk going too far can possibly find out how far one can go." - T.S. Eliot');
 });
 
 // Webhook verify setup using FB_VERIFY_TOKEN
@@ -108,7 +111,7 @@ app.post('/webhook', (req, res) => {
       // This will run all actions until our bot has nothing left to do
       wit.runActions(
         sessionId, // the user's current session
-        msg, // the user's message 
+        msg, // the user's message
         sessions[sessionId].context, // the user's current session state
         (error, context) => {
           if (error) {
