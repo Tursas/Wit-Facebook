@@ -24,10 +24,6 @@ const actions = {
 /*   const sendTextMessage = (message, context.quick_replies) => {
       if(!quick_replies) return 'message';
 
-      if(quick_replies.length > 20) {
-        throw new Error("Quickreplies are limited to 20");
-      }
-
       let body = {text, quick_replies: []};
       quick_replies.forEach(qr => {
         body.quick_replies.push({
@@ -44,15 +40,16 @@ const actions = {
       console.log(message)
     }
     else {*/
-      context.quick_replies.forEach(qr => {
-        context.quick_replies.push({
-          content_type: "text",
-          title: qr,
-          payload: 'PAYLOAD' //Not necessary used but mandatory
+
+      context.quick_replies = [
+        context.quick_replies.forEach(qr => {
+          context.quick_replies.push({
+            content_type: "text",
+            title: qr,
+            payload: 'empty' //Not necessary used but mandatory
+          });
         });
-      });
-      /*context.quick_replies = [
-        {
+  /*    {
           title: 'Option A',
           content_type: 'text',
           payload: 'empty'
