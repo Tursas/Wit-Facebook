@@ -49,7 +49,7 @@ const actions = {
       content_type: 'text',
       payload: 'empty'
     } ]
-  console.log(message, quickreplies);
+  console.log(message, context.quickreplies);
 
     // Bot testing mode, run cb() and return
     if (require.main === module) {
@@ -65,7 +65,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // lisätty context.quick_replies sulkuihin
-      FB.fbMessage(recipientId, message, quickreplies, (err, data) => {
+      FB.fbMessage(recipientId, message, context.quickreplies, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
