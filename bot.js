@@ -40,11 +40,18 @@ const actions = {
     };
     // testaus nappuloille päättyy */
     // koko homma tästä seuraavaan kommenttiin lisätty ja toimii antaen nappulat Option A jne
-    if (!context.quick_replies) {
+    /*if (!context.quick_replies) {
       console.log(message)
     }
-    else {
-      context.quick_replies = [
+    else {*/
+      context.quick_replies.forEach(qr => {
+        context.quick_replies.push({
+          content_type: "text",
+          title: qr,
+          payload: 'PAYLOAD' //Not necessary used but mandatory
+        });
+      });
+      /*context.quick_replies = [
         {
           title: 'Option A',
           content_type: 'text',
@@ -60,9 +67,9 @@ const actions = {
           content_type: 'text',
           payload: 'empty'
         },
-      ]
+      ]*/
       console.log(message, context.quick_replies);
-    }
+  //  }
 
     // Bot testing mode, run cb() and return
     if (require.main === module) {
