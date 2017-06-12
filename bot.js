@@ -21,7 +21,7 @@ const firstEntityValue = (entities, entity) => {
 const actions = {
   say(sessionId, context, message, cb) {
 // testaus nappuloille alkaa, ei toiminut, mutta tästä voisi saada apua otsikoiden haluun.
-   const sendTextMessage = (message, quickreplies) => {
+/*   const sendTextMessage = (message, quickreplies) => {
       if(!quickreplies) return 'message';
 
       let body = {text, quickreplies: []};
@@ -34,14 +34,14 @@ const actions = {
       });
       return body;
     };
-    // testaus nappuloille päättyy
+    // testaus nappuloille päättyy*/
     // koko homma tästä seuraavaan kommenttiin lisätty ja toimii antaen nappulat Option A jne
-/*    if (!quickreplies) {
+    if (!quickreplies) {
       console.log(message)
     }
-    else {*/
+    else {
 
-/*      context.quick_replies = [
+      context.quickreplies = [
         {
           title: 'title',
           content_type: 'text',
@@ -57,8 +57,8 @@ const actions = {
           content_type: 'text',
           payload: 'empty'
         }
-      ]*/
-      console.log(sendTextMessage/*message, quickreplies*/);
+      ]
+      console.log(message, quickreplies);
     }
 
     // Bot testing mode, run cb() and return
@@ -75,7 +75,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // lisätty context.quick_replies sulkuihin
-      FB.fbMessage(recipientId, sendTextMessage/*message, quickreplies*/, (err, data) => {
+      FB.fbMessage(recipientId, message, quickreplies, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
