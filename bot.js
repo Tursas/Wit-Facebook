@@ -20,7 +20,26 @@ const firstEntityValue = (entities, entity) => {
 // Bot actions
 const actions = {
   say(sessionId, context, message, cb) {
-    console.log(message);
+    // koko homma tästä seuraavaan kommenttiin lisätty
+    context.quick_replies = [
+      {
+        title: 'Option A',
+        content_type: 'text',
+        payload: 'empty'
+      },
+      {
+        title: 'Option B',
+        content_type: 'text',
+        payload: 'empty'
+      },
+      {
+        title: 'Option C',
+        content_type: 'text',
+        payload: 'empty'
+      },
+    ]
+    // tähän lisätty sulkujen sisään: ,context.quick_replies
+    console.log(message, context.quick_replies);
 
     // Bot testing mode, run cb() and return
     if (require.main === module) {

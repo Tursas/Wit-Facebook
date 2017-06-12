@@ -25,7 +25,9 @@ const fbMessage = (recipientId, msg, cb) => {
         id: recipientId,
       },
       message: {
-        text: msg,
+        // seuraava rivi lisätty
+        quick_replies: quick_replies,
+        text: msg
       },
     },
   };
