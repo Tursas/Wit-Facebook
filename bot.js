@@ -21,27 +21,27 @@ const firstEntityValue = (entities, entity) => {
 const actions = {
   say(sessionId, context, message, cb) {
 // testaus nappuloille alkaa, ei toiminut, mutta tästä voisi saada apua otsikoiden haluun.
-/*   const sendTextMessage = (message, context.quick_replies) => {
-      if(!quick_replies) return 'message';
+   const sendTextMessage = (message, context.quickreplies) => {
+      if(!quickreplies) return 'message';
 
-      let body = {text, quick_replies: []};
-      quick_replies.forEach(qr => {
-        body.quick_replies.push({
+      let body = {text, quickreplies: []};
+      quickreplies.forEach(qr => {
+        body.quickreplies.push({
           content_type: "text",
           title: qr,
           payload: 'PAYLOAD' //Not necessary used but mandatory
         });
       });
-      return 'body';
+      return body;
     };
-    // testaus nappuloille päättyy */
+    // testaus nappuloille päättyy
     // koko homma tästä seuraavaan kommenttiin lisätty ja toimii antaen nappulat Option A jne
-    /*if (!context.quick_replies) {
+    if (!quickreplies) {
       console.log(message)
     }
-    else {*/
+    else {
 
-      context.quick_replies = [
+/*      context.quick_replies = [
         {
           title: 'title',
           content_type: 'text',
@@ -57,8 +57,8 @@ const actions = {
           content_type: 'text',
           payload: 'empty'
         }
-      ]
-      console.log(message, context.quick_replies);
+      ]*/
+      console.log(message, context.quickreplies);
   //  }
 
     // Bot testing mode, run cb() and return
@@ -75,7 +75,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // lisätty context.quick_replies sulkuihin
-      FB.fbMessage(recipientId, message, context.quick_replies, (err, data) => {
+      FB.fbMessage(recipientId, message, context.quickreplies, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
