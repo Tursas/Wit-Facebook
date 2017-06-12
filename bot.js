@@ -36,30 +36,20 @@ const actions = {
     };
     // testaus nappuloille päättyy*/
     // koko homma tästä seuraavaan kommenttiin lisätty ja toimii antaen nappulat Option A jne
-    if (!quickreplies) {
-      console.log(message)
-    }
-    else {
-
-      context.quickreplies = [
-        {
-          title: 'title',
-          content_type: 'text',
-          payload: 'empty'
-        },
-        {
-          title: 'title',
-          content_type: 'text',
-          payload: 'empty'
-        },
-        {
-          title: 'title',
-          content_type: 'text',
-          payload: 'empty'
-        }
-      ]
-      console.log(message, quickreplies);
-    }
+    context.quickreplies = [ {
+      title: 'title',
+      content_type: 'text',
+      payload: 'empty'
+    },   {
+      title: 'title',
+      content_type: 'text',
+      payload: 'empty'
+    }, {
+      title: 'title',
+      content_type: 'text',
+      payload: 'empty'
+    } ]
+  console.log(message, quickreplies);
 
     // Bot testing mode, run cb() and return
     if (require.main === module) {
