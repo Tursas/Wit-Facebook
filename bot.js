@@ -23,7 +23,7 @@ const actions = {
 // testaus nappuloille alkaa, ei toiminut, mutta tästä voisi saada apua otsikoiden haluun.
 /*   const sendTextMessage = (message, quickreplies) => {
       if(!quickreplies) return 'message';*/
-      response.quickreplies.map(x => {title: x, "content_type": "text", payload: "empty"});
+      response.quickreplies.map(x => {title: x, content_type: "text", payload: "empty"});
       let body = {text, quickreplies: []};
       quickreplies.forEach(qr => {
         body.quickreplies.push({
