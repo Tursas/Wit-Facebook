@@ -59,7 +59,7 @@ const actions = {
         }
       ]*/
       console.log(message, context.quickreplies);
-  //  }
+    }
 
     // Bot testing mode, run cb() and return
     if (require.main === module) {
