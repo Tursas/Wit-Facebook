@@ -22,8 +22,8 @@ const actions = {
   say(sessionId, context, message, cb) {
 // testaus nappuloille alkaa, ei toiminut, mutta tästä voisi saada apua otsikoiden haluun.
 /*   const sendTextMessage = (message, quickreplies) => {
-      if(!quickreplies) return 'message';
-
+      if(!quickreplies) return 'message';*/
+      response.quickreplies.map(x => {title: x, "content_type": "text", payload: "empty"});
       let body = {text, quickreplies: []};
       quickreplies.forEach(qr => {
         body.quickreplies.push({
@@ -32,11 +32,11 @@ const actions = {
           payload: 'PAYLOAD' //Not necessary used but mandatory
         });
       });
-      return body;
+      return body;/*
     };
     // testaus nappuloille päättyy*/
     // koko homma tästä seuraavaan kommenttiin lisätty ja toimii antaen nappulat Option A jne
-    context.quick_replies = [ {
+  /*  context.quick_replies = [ {
       title: 'title',
       content_type: 'text',
       payload: 'empty'
@@ -48,8 +48,8 @@ const actions = {
       title: 'title',
       content_type: 'text',
       payload: 'empty'
-    } ]
-  console.log(message, context.quick_replies);
+    } ]*/
+  console.log(message/*, context.quick_replies*/);
 
     // Bot testing mode, run cb() and return
     if (require.main === module) {
@@ -65,7 +65,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // lisätty context.quick_replies sulkuihin
-      FB.fbMessage(recipientId, message, context.quick_replies, (err, data) => {
+      FB.fbMessage(recipientId, message/*, context.quick_replies*/, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',

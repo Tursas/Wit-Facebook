@@ -19,7 +19,7 @@ const fbReq = request.defaults({
 
 // lisätty quick_replies sulkuihin
 const fbMessage = (recipientId, msg, quick_replies, cb) => {
-  response.quickreplies.map(x => {title: x, "content_type": "text", payload: "empty"});
+
   const opts = {
     form: {
       recipient: {
