@@ -20,23 +20,17 @@ const firstEntityValue = (entities, entity) => {
 // Bot actions
 const actions = {
   say(sessionId, context, message, cb) {
-    // koko homma tästä seuraavaan kommenttiin lisätty
+    // koko homma tästä seuraavaan kommenttiin lisätty -> muutettu
     context.quick_replies = [
       {
-        title: 'Option A',
-        content_type: 'text',
-        payload: 'empty'
-      },
-      {
-        title: 'Option B',
-        content_type: 'text',
-        payload: 'empty'
-      },
-      {
-        title: 'Option C',
-        content_type: 'text',
-        payload: 'empty'
-      },
+        quick_replies.forEach(qr => {
+          quick_replies.push({
+            content_type: "text",
+            title: qr,
+            payload: 'PAYLOAD'
+          });
+        });
+      }
     ]
     // tähän lisätty sulkujen sisään: ,context.quick_replies
     console.log(message, context.quick_replies);
