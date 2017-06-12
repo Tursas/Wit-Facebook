@@ -40,25 +40,29 @@ const actions = {
     };
     // testaus nappuloille päättyy */
     // koko homma tästä seuraavaan kommenttiin lisätty ja toimii antaen nappulat Option A jne
-
-    context.quick_replies = [
-      {
-        title: 'Option A',
-        content_type: 'text',
-        payload: 'empty'
-      },
-      {
-        title: 'Option B',
-        content_type: 'text',
-        payload: 'empty'
-      },
-      {
-        title: 'Option C',
-        content_type: 'text',
-        payload: 'empty'
-      },
-    ]
-    console.log(message, context.quick_replies);
+    if (!context.quick_replies) {
+      console.log(message)
+    }
+    else {
+      context.quick_replies = [
+        {
+          title: 'Option A',
+          content_type: 'text',
+          payload: 'empty'
+        },
+        {
+          title: 'Option B',
+          content_type: 'text',
+          payload: 'empty'
+        },
+        {
+          title: 'Option C',
+          content_type: 'text',
+          payload: 'empty'
+        },
+      ]
+      console.log(message, context.quick_replies);
+    }
 
     // Bot testing mode, run cb() and return
     if (require.main === module) {
@@ -74,7 +78,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // lisätty context.quick_replies sulkuihin
-      FB.fbMessage(recipientId, sendTextMessage/*message, context.quick_replies*/, (err, data) => {
+      FB.fbMessage(recipientId, message, context.quick_replies, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
