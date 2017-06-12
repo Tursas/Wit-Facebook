@@ -24,7 +24,7 @@ const actions = {
 /*   const sendTextMessage = (message, quickreplies) => {
       if(!quickreplies) return 'message';
       response.quickreplies.map(x => {title: x, content_type: "text", payload: "empty"});
-  */    let body = {text, quickreplies: []};
+  */    let body = {msg, quickreplies: []};
       quickreplies.forEach(qr => {
         body.quickreplies.push({
           content_type: "text",
