@@ -20,20 +20,45 @@ const firstEntityValue = (entities, entity) => {
 // Bot actions
 const actions = {
   say(sessionId, context, message, cb) {
-    // koko homma tästä seuraavaan kommenttiin lisätty -> muutettu
-    context.quick_replies = [
-      {
-        quick_replies.forEach(qr => {
-          quick_replies.push({
-            content_type: "text",
-            title: qr,
-            payload: 'PAYLOAD'
-          });
-        });
+// testaus nappuloille alkaa
+    const sendTextMessage = (message, context.quick_replies) => {
+      if(!quick_replies) return 'message';
+
+      if(quick_replies.length > 20) {
+        throw new Error("Quickreplies are limited to 20");
       }
-    ]
+
+      let body = {text, quick_replies: []};
+      quick_replies.forEach(qr => {
+        body.quick_replies.push({
+          content_type: "text",
+          title: qr,
+          payload: 'PAYLOAD' //Not necessary used but mandatory
+        });
+      });
+      return 'body';
+    };
+    // testaus nappuloille päättyy
+    // koko homma tästä seuraavaan kommenttiin lisätty ja toimii antaen nappulat Option A jne
+//    context.quick_replies = [
+//      {
+//        title: 'Option A',
+//        content_type: 'text',
+//        payload: 'empty'
+//      },
+//      {
+//        title: 'Option B',
+//        content_type: 'text',
+//        payload: 'empty'
+//      },
+//      {
+//        title: 'Option C',
+//        content_type: 'text',
+//        payload: 'empty'
+//      },
+//    ]
     // tähän lisätty sulkujen sisään: ,context.quick_replies
-    console.log(message, context.quick_replies);
+    console.log(sendTextMessage)//message, context.quick_replies);
 
     // Bot testing mode, run cb() and return
     if (require.main === module) {
@@ -49,7 +74,7 @@ const actions = {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
       // lisätty context.quick_replies sulkuihin
-      FB.fbMessage(recipientId, message, context.quick_replies, (err, data) => {
+      FB.fbMessage(recipientId, sendTextMessage/*message, context.quick_replies*/, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
