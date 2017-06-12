@@ -42,29 +42,22 @@ const actions = {
     else {*/
 
       context.quick_replies = [
-        context.quick_replies.forEach(qr => {
-          context.quick_replies.push({
-            content_type: "text",
-            title: qr,
-            payload: 'empty' //Not necessary used but mandatory
-          });
-        });
-  /*    {
-          title: 'Option A',
+        {
+          title: 'title',
           content_type: 'text',
           payload: 'empty'
         },
         {
-          title: 'Option B',
+          title: 'title',
           content_type: 'text',
           payload: 'empty'
         },
         {
-          title: 'Option C',
+          title: 'title',
           content_type: 'text',
           payload: 'empty'
-        },
-      ]*/
+        }
+      ]
       console.log(message, context.quick_replies);
   //  }
 
