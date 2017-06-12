@@ -20,8 +20,8 @@ const firstEntityValue = (entities, entity) => {
 // Bot actions
 const actions = {
   say(sessionId, context, message, cb) {
-// testaus nappuloille alkaa
-    const sendTextMessage = (message, context.quick_replies) => {
+// testaus nappuloille alkaa, ei toiminut, mutta tästä voisi saada apua otsikoiden haluun.
+   const sendTextMessage = (message, context.quick_replies) => {
       if(!quick_replies) return 'message';
 
       if(quick_replies.length > 20) {
@@ -40,25 +40,25 @@ const actions = {
     };
     // testaus nappuloille päättyy
     // koko homma tästä seuraavaan kommenttiin lisätty ja toimii antaen nappulat Option A jne
-//    context.quick_replies = [
-//      {
-//        title: 'Option A',
-//        content_type: 'text',
-//        payload: 'empty'
-//      },
-//      {
-//        title: 'Option B',
-//        content_type: 'text',
-//        payload: 'empty'
-//      },
-//      {
-//        title: 'Option C',
-//        content_type: 'text',
-//        payload: 'empty'
-//      },
-//    ]
+/*    context.quick_replies = [
+      {
+        title: 'Option A',
+        content_type: 'text',
+        payload: 'empty'
+      },
+      {
+        title: 'Option B',
+        content_type: 'text',
+        payload: 'empty'
+      },
+      {
+        title: 'Option C',
+        content_type: 'text',
+        payload: 'empty'
+      },
+    ]*/
     // tähän lisätty sulkujen sisään: ,context.quick_replies
-    console.log(sendTextMessage)//message, context.quick_replies);
+    console.log(sendTextMessage/*message, context.quick_replies*/);
 
     // Bot testing mode, run cb() and return
     if (require.main === module) {
