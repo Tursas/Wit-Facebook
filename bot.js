@@ -54,7 +54,8 @@ const actions = {
     if (recipientId) {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
-      FB.fbMessage(recipientId, message, (err, data) => {
+      // lisätty context.quick_replies sulkuihin
+      FB.fbMessage(recipientId, message, context.quick_replies, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',

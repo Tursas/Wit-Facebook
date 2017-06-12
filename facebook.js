@@ -17,8 +17,8 @@ const fbReq = request.defaults({
   },
 });
 
-
-const fbMessage = (recipientId, msg, cb) => {
+// lisätty quick_replies sulkuihin
+const fbMessage = (recipientId, msg, quick_replies, cb) => {
   const opts = {
     form: {
       recipient: {
