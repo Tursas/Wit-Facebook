@@ -24,7 +24,7 @@ const actions = {
 /*   const sendTextMessage = (message, quickreplies) => {
       if(!quickreplies) return 'message';
       response.quickreplies.map(x => {title: x, content_type: "text", payload: "empty"});
-  */    let body = {msg, quickreplies: []};
+     let body = {msg, quickreplies: []};
       quickreplies.forEach(qr => {
         body.quickreplies.push({
           content_type: "text",
@@ -32,7 +32,7 @@ const actions = {
           payload: 'PAYLOAD' //Not necessary used but mandatory
         });
       });
-      return body;/*
+      return body;
     };
     // testaus nappuloille päättyy*/
     // koko homma tästä seuraavaan kommenttiin lisätty ja toimii antaen nappulat Option A jne
