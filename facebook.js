@@ -18,7 +18,7 @@ const fbReq = request.defaults({
 });
 
 // lisätty quick_replies sulkuihin
-const fbMessage = (recipientId, msg, quick_replies, cb) => {
+const fbMessage = (recipientId, msg, /*quickreplies,*/ cb) => {
 
   const opts = {
     form: {
@@ -27,7 +27,7 @@ const fbMessage = (recipientId, msg, quick_replies, cb) => {
       },
       message: {
         // seuraava rivi lisätty
-        quick_replies: {title: x, content_type: "text", payload: "empty"},
+        //quickreplies: {title: x, content_type: "text", payload: "empty"},
         text: msg
       },
     },
