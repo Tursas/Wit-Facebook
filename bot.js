@@ -124,7 +124,7 @@ send(request, response) {
     // context.forecast = apiCall(context.loc)
     //context.forecast = 'sunny';
     //cb(context);
-  },
+  //},
 };
 
 
