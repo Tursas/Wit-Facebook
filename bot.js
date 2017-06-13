@@ -100,10 +100,10 @@ const actions = {
 
 
   // fetch-weather bot executes
-  /*['fetch-weather'](sessionId, context, cb) {
+  ['fetch-weather'](sessionId, context, cb) {
     //Here should go the api call, e.g.:
     // nappulatestausta
-    send(request, response) {
+  /*  send(request, response) {
       const {sessionId, context, entities} = request;
       let {text, quickreplies} = response;
       if(text.substring(0,6) === IDENTIFY_PAYLOAD){
@@ -118,11 +118,11 @@ const actions = {
         });
       }
     }
-    // testaus päättyy
-      /*context.forecast = apiCall(context.loc)
+    // testaus päättyy */
+      //context.forecast = apiCall(context.loc)
       context.forecast = 'sunny';
       cb(context);
-  }*/
+  }
 };
 
 
