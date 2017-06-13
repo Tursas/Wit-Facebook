@@ -99,32 +99,30 @@ const actions = {
   },
 
 
-// nappulatestausta
-send(request, response) {
-  const {sessionId, context, entities} = request;
-  let {text, quickreplies} = response;
-  if(text.substring(0,6) === IDENTIFY_PAYLOAD){
-    text = text.substring(6); // It is a payload, not raw text
-  } else {
-    text = {"text": text};
-  }
-  if(typeof quickreplies !== "undefined"){
-    text.quick_replies = response.quickreplies
-      .map(x => { return {
-        "title": x, "content_type": "text", "payload": "empty"}
-    });
-  }
-}
-// testaus päättyy
-
-
-  /*// fetch-weather bot executes
-    ['fetch-weather'](sessionId, context, cb) {
+  // fetch-weather bot executes
+  /*['fetch-weather'](sessionId, context, cb) {  
     //Here should go the api call, e.g.:
-      context.forecast = apiCall(context.loc)
+    // nappulatestausta
+    send(request, response) {
+      const {sessionId, context, entities} = request;
+      let {text, quickreplies} = response;
+      if(text.substring(0,6) === IDENTIFY_PAYLOAD){
+        text = text.substring(6); // It is a payload, not raw text
+      } else {
+        text = {"text": text};
+      }
+      if(typeof quickreplies !== "undefined"){
+        text.quick_replies = response.quickreplies
+          .map(x => { return {
+            "title": x, "content_type": "text", "payload": "empty"}
+        });
+      }
+    }
+    // testaus päättyy
+      /*context.forecast = apiCall(context.loc)
       context.forecast = 'sunny';
-      cb(context);
-  }*/
+      cb(context);*/
+  }
 };
 
 
