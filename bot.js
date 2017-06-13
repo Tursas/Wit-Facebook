@@ -35,7 +35,7 @@ const actions = {
       return body;
     };
     // testaus nappuloille päättyy*/
-    // koko homma tästä seuraavaan kommenttiin lisätty ja toimii antaen nappulat Option A jne
+    // koko homma tästä seuraavaan kommenttiin lisätty ja toimii antaen dynaamiset nappulat
   /*  context.quick_replies = [ {
       title: 'title',
       content_type: 'text',
@@ -49,7 +49,7 @@ const actions = {
       content_type: 'text',
       payload: 'empty'
     } ]*/
-  console.log(message/*, context.quick_replies*/);
+  console.log(message);
 
     // Bot testing mode, run cb() and return
     if (require.main === module) {
@@ -64,8 +64,8 @@ const actions = {
     if (recipientId) {
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
-      // lisätty context.quick_replies sulkuihin
-      FB.fbMessage(recipientId, message/*, context.quick_replies*/, (err, data) => {
+
+      FB.fbMessage(recipientId, message, (err, data) => {
         if (err) {
           console.log(
             'Oops! An error occurred while forwarding the response to',
@@ -97,6 +97,26 @@ const actions = {
   error(sessionId, context, error) {
     console.log(error.message);
   },
+
+  
+// nappulatestausta
+send(request, response) {
+  const {sessionId, context, entities} = request;
+  let {text, quickreplies} = response;
+  if(text.substring(0,6) === IDENTIFY_PAYLOAD){
+    text = text.substring(6); // It is a payload, not raw text
+  } else {
+    text = {"text": text};
+  }
+  if(typeof quickreplies !== "undefined"){
+    text.quick_replies = response.quickreplies
+      .map(x => { return {
+        "title": x, "content_type": "text", "payload": "empty"}
+    });
+  }
+}
+// testaus päättyy
+
 
   // fetch-weather bot executes
   ['fetch-weather'](sessionId, context, cb) {
