@@ -98,7 +98,7 @@ const actions = {
     console.log(error.message);
   },
 
-  
+
 // nappulatestausta
 send(request, response) {
   const {sessionId, context, entities} = request;
@@ -119,10 +119,10 @@ send(request, response) {
 
 
   // fetch-weather bot executes
-  ['fetch-weather'](sessionId, context, cb) {
+  //['fetch-weather'](sessionId, context, cb) {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
-    context.forecast = 'sunny';
+    //context.forecast = 'sunny';
     cb(context);
   },
 };
