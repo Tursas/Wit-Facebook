@@ -118,13 +118,13 @@ send(request, response) {
 // testaus päättyy
 
 
-  // fetch-weather bot executes
-  //['fetch-weather'](sessionId, context, cb) {
-    // Here should go the api call, e.g.:
-    // context.forecast = apiCall(context.loc)
-    //context.forecast = 'sunny';
-    //cb(context);
-  //},
+  /*// fetch-weather bot executes
+    ['fetch-weather'](sessionId, context, cb) {
+    //Here should go the api call, e.g.:
+      context.forecast = apiCall(context.loc)
+      context.forecast = 'sunny';
+      cb(context);
+  }*/
 };
 
 
