@@ -100,7 +100,7 @@ const actions = {
 
 
   // fetch-weather bot executes
-  /*['fetch-weather'](sessionId, context, cb) {  
+  /*['fetch-weather'](sessionId, context, cb) {
     //Here should go the api call, e.g.:
     // nappulatestausta
     send(request, response) {
@@ -121,8 +121,8 @@ const actions = {
     // testaus päättyy
       /*context.forecast = apiCall(context.loc)
       context.forecast = 'sunny';
-      cb(context);*/
-  }
+      cb(context);
+  }*/
 };
 
 
