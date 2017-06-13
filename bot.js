@@ -123,7 +123,7 @@ send(request, response) {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
     //context.forecast = 'sunny';
-    cb(context);
+    //cb(context);
   },
 };
 
